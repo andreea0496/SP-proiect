@@ -26,6 +26,29 @@ tri = sawtooth(2*pi*F*t,0.2);
 plot(t,tri,'.-m'),axis([0 30 -1.5 1.5]),xlabel('Timp[s]'),ylabel('Amplitudine'),title('Semnal triunghiular')
 grid
 
+%  3.Semnal dreptunghiular multinivel
+    
+    N = 4;
+    t = 0:0.002:N;
+    j = 1;
+    
+    for i = 1:1:length(t)
+     if  t(i) <= j*0.25
+         a = 0:j*N;
+         if j <= length(a)
+             dr(i) = a(j);
+         else
+             dr(i) = 0;
+         end
+     else
+        if j <= length(a)
+             dr(i) = a(j);
+        end
+        j = j+1; 
+     end
+    end
+   
+    plot(t,dr,'.-k'),axis([0 10 -7 7]),xlabel('Timp[s]'), ylabel('Amplitudine'),grid
 
 % 4. Semnal sinusoidal redresat mono alternanta
 
